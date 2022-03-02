@@ -21,22 +21,22 @@ basic.forever(function () {
     4
     ))
     xCoche = x - 2
-    yCoche = (y - 1) * -1
+    yCoche = y - 1
     if (xCoche == 2) {
-        velocidadI = -20
-        velocidadD = 0
+        velocidadI = 0
+        velocidadD = 20
     } else if (xCoche == 1) {
-        velocidadI = -10
-        velocidadD = 0
+        velocidadI = 0
+        velocidadD = 10
     } else if (xCoche == 0) {
         velocidadI = 0
         velocidadD = 0
     } else if (xCoche == -1) {
-        velocidadI = 0
-        velocidadD = -10
+        velocidadI = 10
+        velocidadD = 0
     } else {
-        velocidadI = 0
-        velocidadD = -20
+        velocidadI = 20
+        velocidadD = 0
     }
     velocidadI = velocidadI + yCoche * 10
     velocidadD = velocidadD + yCoche * 10
@@ -45,13 +45,13 @@ basic.forever(function () {
     } else if (velocidadD >= 0) {
         maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CW, velocidadD)
     } else {
-        maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CCW, Math.abs(velocidadD))
+        maqueen.motorRun(maqueen.Motors.M2, maqueen.Dir.CCW, velocidadD)
     }
     if (velocidadI == 0) {
         maqueen.motorStop(maqueen.Motors.M1)
     } else if (velocidadI >= 0) {
         maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, velocidadI)
     } else {
-        maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CCW, Math.abs(velocidadI))
+        maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CCW, velocidadI)
     }
 })
